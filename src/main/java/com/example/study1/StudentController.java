@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Objects;
+
 @Slf4j
 @RequiredArgsConstructor
 @Controller
@@ -24,8 +26,14 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public String register(Student student){
+    public String register(Student student) {
         studentMap.getStudentList().add(student);
+        return "redirect:/";
+    }
+
+    @PostMapping("/students/delete")
+    public String delete(String name) {
+        studentMap.getStudentList().removeIf(student -> Objects.equals(student.getName(), name));
         return "redirect:/";
     }
 }

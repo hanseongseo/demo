@@ -12,11 +12,18 @@
         <div th:text="'몸무게' + ${student.getWeight()}"></div>
     </div>
 
+    <div>학생등록</div>
     <form action="/students" method="post">
         <input placeholder="이름" name="name">
         <input placeholder="키" name="height">
         <input placeholder="몸무게" name="weight">
         <button type="submit">등록</button>
+    </form>
+
+    <div>학생삭제</div>
+    <form action="/students/delete" method="post">
+        <input placeholder="이름" name="name">
+        <button type="submit">삭제</button>
     </form>
 </body>
 </html>
