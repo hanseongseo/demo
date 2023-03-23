@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>학생목록</div>
+    <div th:each="student: ${students}">
+        <div th:text="'이름' + ${student.getName()}"></div>
+        <div th:text="'키' + ${student.getHeight()}"></div>
+        <div th:text="'몸무게' + ${student.getWeight()}"></div>
+    </div>
+
+    <form action="/students" method="post">
+        <input placeholder="이름" name="name">
+        <input placeholder="키" name="height">
+        <input placeholder="몸무게" name="weight">
+        <button type="submit">등록</button>
+    </form>
+</body>
+</html>
